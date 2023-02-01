@@ -27,3 +27,6 @@ var h1 = document.querySelector('header h1');
 container.insertBefore(newdiv,h1);
 console.log(newdiv);
 
+var ul = document.querySelector('.items');
+ul.firstElementChild.textcontent = 'HEllo';
+
