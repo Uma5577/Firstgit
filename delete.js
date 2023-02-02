@@ -66,16 +66,16 @@ function removeItem(e) {
 }
 
 //Filter Items
-function filterItems(e) {
+function onfilterItems(e) {
     //convert text to lowercase
     var text= e.target.value.toLowerCase();
     //Get lis
-    var items =itemList.getElementsByTagName('li');
+    var items =itemList.getElementsByTagName('li'); //array of nodes
     // Convert to an array
     Array.from(items).forEach(function(item){
-        var itemName= item.firstChild.textContent;
+        const itemName= item.firstChild.textContent;
         //description text content
-        var description= item.childNodes[1].textContent;
+        const description= item.childNodes[1].textContent;
         if(itemName.toLowerCase().indexOf(text) != -1 || description.toLowerCase().indexOf(text) != -1){
             item.style.display = 'block';
         }
