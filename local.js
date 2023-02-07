@@ -8,12 +8,32 @@ function saveToLocalStorage(event){
         name,
         email
     }
-    localStorage.setItem('userDetails',JSON.stringify(myobj));
+    localStorage.setItem('userDetails',JSON.stringify(myobj));    
+    
+
 
 
 }
 
 function showUserOnScreen(obj){
-    const parentElem = document.getElementById('listOfitems');
-    parentElem.innerHTML = parentElem.innerHTML + <li> ${obj.name} - ${obj.email} </li>
+    const parentElem = document.getElementById('list of items')
+
+    const childElem = document.createElement('li')
+    childElem.textContent = obj.name + ' - ' + obj.email
+
+    const deleteButton = document.createElement('input')
+    deleteButton.type = "button"
+    deleteButton.value = "Delete"
+    deleteButton.onclick = () => {
+        localStorage.removeItem(obj.email)
+        parentElem.removeChild(childElem)
+
+    }
+
+    childElem.appendChild(deleteButton)
+    parentElem.appendChild(childElem)
+
+
+    
+
 }
