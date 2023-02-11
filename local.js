@@ -23,14 +23,18 @@ function showUserOnScreen(obj){
 
     const deleteButton = document.createElement('input')
     deleteButton.type = "button"
-    deleteButton.value = "Delete"
+    deleteButton.value = "Edit"
     deleteButton.onclick = () => {
         localStorage.removeItem(obj.email)
         parentElem.removeChild(childElem)
+        document.getElementById('usernameInputTag').value = obj.name
+        document.getElementById('emailInputTag').value = obj.email
+
 
     }
 
     childElem.appendChild(deleteButton)
+    childElem.appendChild(editButton)
     parentElem.appendChild(childElem)
 
 
